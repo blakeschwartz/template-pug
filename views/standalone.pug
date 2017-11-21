@@ -1,0 +1,71 @@
+doctype html 
+html(lang="en")
+    head 
+        title Standalone
+
+        meta(charset="utf-8")
+        meta(content="IE=edge", http-equiv="X-UA-Compatible")
+        meta(content="width=device-width, initial-scale=1", name="viewport")
+
+        // Local styles
+        link(rel='stylesheet', href='/css/styles.css', type='text/css')
+
+        // babel for ES2015
+        script(src="https://unpkg.com/babel-standalone@6/babel.min.js")
+
+    body
+        .container
+
+            header
+                h1 Menu
+
+                ul
+                    li: a(href="/") Home
+
+            // Page Content
+            section#content
+                h1.title Standalone Page Example
+
+                p.
+                    This page demonstrates multiple renderings without layout dependencies, external headers or footers.
+
+                h2 Pug
+                .center
+                    p Hello, world from Pug.
+
+                :marked
+                    ```
+                    p Hello, world from Pug.
+                    ```
+
+                // Test babel ES2015
+                h2 Babel
+                #output
+
+                :marked
+                    ```
+                    script(type="text/babel").
+                        let sayHi = () => {
+                            let txt = "Hello from JavaScript es2015."
+                            console.log(txt)
+                            return txt
+                        }
+
+                    script(type="text/babel").
+                        document.getElementById('output').innerHTML = sayHi()
+                    ```
+            // Footer
+            div.center(style="margin: 3px")
+                p(class="text-muted center") Copyright &copy; 1900-2016. Simple Example. All rights reserved. 
+
+
+        // Test ES2015
+        script(type="text/babel").
+            let sayHi = () => {
+                let txt = "Hello from JavaScript es2015."
+                console.log(txt)
+                return txt
+            }
+
+        script(type="text/babel").
+            document.getElementById('output').innerHTML = sayHi()

@@ -1,0 +1,23 @@
+extends ./inc/layout
+
+block content
+
+  script(src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js")
+    
+  .center
+
+    h1 Split Array using Ramda
+
+    ul
+      li All: <span id="all" />
+      li Head: <span id="head" />
+      li Tail: <span id="tail" />
+
+  script(type="text/babel").
+    let arr = ["first", "second", "third"]
+    let head = R.head(arr)
+    let tail = R.tail(arr)
+
+    document.getElementById('all').innerHTML = arr
+    document.getElementById('head').innerHTML = head
+    document.getElementById('tail').innerHTML = tail

@@ -1,0 +1,46 @@
+doctype html 
+html(lang="en")
+    head 
+        title Standalone with layout 
+
+        meta(charset="utf-8")
+        meta(content="IE=edge", http-equiv="X-UA-Compatible")
+        meta(content="width=device-width, initial-scale=1", name="viewport")
+
+        script(src="https://unpkg.com/babel-standalone@6/babel.min.js")
+ 
+        link(rel='stylesheet', href='/css/styles.css', type='text/css')
+
+    body
+        .container
+            
+            include inc/header
+
+            section#content
+                h1.title Standalone Page with Headers and Footers
+
+                p.
+                    This page demonstrates rendering technologies without a layout but uses common 
+                    headers and footers.
+
+                h2 Pug
+                .center
+                    p Hello, world from Pug.
+
+                // Test babel ES6
+                h2 JavaScript
+                #js-out
+
+                // Test coffeescript
+                h2 CoffeeScript
+                #coffee-out
+
+            include inc/footer
+
+        script(src="/js/testJS.js" type="text/javascript")        
+        script(type="text/javascript").
+            document.getElementById('js-out').innerHTML = sayHi()
+
+        script(src="/js/testCoffee.js" type="text/javascript")
+        script(type="text/javascript").
+            document.getElementById('coffee-out').innerHTML = coffeeSayHi()
